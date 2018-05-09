@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-md-12 text-center">
+        <form class="col-md-4 col-md-push-4 form-signin" #f="ngForm" (keyup)="searchShow(f.value)">
+            <h3 class="form-signin-heading">Search for TV Show</h3>
+
+            <div class="input-group">
+                <input type="text" id="inputSearch" name="query" ngModel class="form-control" placeholder="Breaking Bad">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Go!</button>
+                </span>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div class="row" style="margin-top:5em;">
+    
+    <h4 *ngIf="showLoader" class="text-center">Loading data..</h4>
+
+    <h4 *ngIf="!showLoader" class="text-center">Have you seen these?</h4>
+    <div *ngFor="let show of tvShows" class="col-sm-6 col-md-3">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/{{show.poster_path}}" alt="...">
+            <div class="caption">
+                <h3>{{show.name}}</h3>
+                <p>
+                    <app-watchlist-button [data]="show"></app-watchlist-button>
+                    <a 
+                    [routerLink]="['/showdetails', show.id]"
+
+                    class="btn btn-open" role="button">More info..</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

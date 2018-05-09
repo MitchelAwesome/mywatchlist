@@ -1,0 +1,20 @@
+
+<h1 *ngIf="showLoader" class="text-center">Loading data...</h1>
+
+<div *ngIf="!showLoader" class="row">
+  <div class="col-md-3">
+    <div class="thumbnail">
+        <img src="https://image.tmdb.org/t/p/w500/{{show.poster_path}}" alt="">
+    </div>
+    
+  </div>
+  <div class="col-md-9">
+    <h1>{{show.name}}</h1>
+    <p>
+      <strong>Created by:</strong> {{show.created_by[0].name}}
+    </p>
+    <p>
+        <strong>Last air date:</strong> {{show.last_air_date}}
+      </p>
+  </div>
+</div>

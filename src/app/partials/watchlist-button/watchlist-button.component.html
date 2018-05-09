@@ -1,0 +1,13 @@
+<a
+class="btn"
+[class.btn-primary]="!isAdded"
+[class.btn-success]="isAdded"
+(click)="onClick()"
+>
+<span *ngIf="!isAdded">
+  <i class="glyphicon glyphicon-plus"></i>
+  Add to Watchlist</span>
+<span *ngIf="isAdded">
+    <i class="glyphicon glyphicon-eye-open"></i>
+  Watching..</span>
+</a>

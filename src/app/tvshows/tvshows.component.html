@@ -1,0 +1,23 @@
+
+<h4 *ngIf="showLoader" class="text-center">Loading data..</h4>
+
+<div *ngIf="!showLoader">
+    <h1 class="text-center" style="margin:3em 0px;">What I'm Currently Watching</h1>
+    <div *ngFor="let show of watchlist" class="col-sm-6 col-md-3">
+        <div class="thumbnail">
+            <img src="https://image.tmdb.org/t/p/w500/{{show.img}}" alt="...">
+            <div class="caption">
+                    <h4>{{ show.title }}</h4>
+                    <div class="text-center">
+                        <app-watch-status-toggle-button [data]="show"></app-watch-status-toggle-button>
+                        <br>
+                        <button (click)="deleteShow(show)" class="btn btn-ghost danger" style="color:red;">Delete</button>
+                        <br>
+                        <a
+                        [routerLink]="['/showdetails', show.tvshow_id]"
+                        class="btn btn-open" role="button">More info..</a>
+                    </div>
+            </div>
+        </div>
+    </div>    
+</div>

@@ -1,0 +1,17 @@
+
+<button *ngIf="status=='watching'" (click)="patchResource(data.id,'finished')" class="btn btn-success">
+  <span *ngIf="showLoader">
+    Loading..
+  </span>
+  <span *ngIf="!showLoader">
+      Finished Watching
+  </span>
+</button>
+<button *ngIf="status=='finished'" (click)="patchResource(data.id,'watching')" class="btn btn-primary">
+  <span *ngIf="showLoader">
+    Loading..
+  </span>
+  <span *ngIf="!showLoader">
+    Watching
+  </span>
+</button>
